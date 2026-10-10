@@ -1,5 +1,6 @@
 import { getSession } from "@/lib/auth/server";
 import { EventDetailContent } from "@/components/event-detail-content";
+import { redirect } from "next/navigation";
 
 export default async function EventDetailsPage({
   params,
@@ -9,7 +10,11 @@ export default async function EventDetailsPage({
   const { eventId } = await params;
   const session = await getSession();
 
-  return (
-    <EventDetailContent userId={session.data?.user.id} eventId={eventId} />
-  );
+  const userId = session.data?.user?.id;
+
+  if (!userId) {
+    redirect("/auth/sign-in");
+  }
+
+  return <EventDetailContent userId={userId} eventId={eventId} />;
 }

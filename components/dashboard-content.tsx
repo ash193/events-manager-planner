@@ -75,9 +75,9 @@ export async function DashboardContent({ userId }: { userId: string }) {
                   </Button>
                 </div>
                 <div className="flex flex-wrap gap-2 text-xs">
-                  <Badge variant="secondary">Going: {event.goingCount}</Badge>
+                  <Badge>Going: {event.goingCount}</Badge>
                   <Badge variant="secondary">Maybe: {event.maybeCount}</Badge>
-                  <Badge variant="secondary">
+                  <Badge variant="outline">
                     Not Going: {event.notGoingCount}
                   </Badge>
                 </div>

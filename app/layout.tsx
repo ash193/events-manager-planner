@@ -28,7 +28,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       suppressHydrationWarning
     >
       <body className="min-h-full flex flex-col bg-[var(--background)] text-[var(--foreground)]">
-        <NeonAuthUIProvider authClient={authClient}>
+        <NeonAuthUIProvider authClient={authClient} defaultTheme="dark">
           <header className="border-b border-[var(--border)] bg-[var(--surface)]/90 background-blur">
             <div className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between px-4">
               <Link href={"/"} className="text-sm font-semibold tracking-wide">
