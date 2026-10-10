@@ -15,6 +15,7 @@ import {
   TableHeader,
   TableRow,
 } from "./ui/table";
+import { ArrowLeft } from "lucide-react";
 
 export async function EventDetailContent({
   userId,
@@ -100,7 +101,10 @@ export async function EventDetailContent({
           )}
         </div>
         <Button asChild variant="outline">
-          <Link href={"/dashboard"}></Link>
+          <Link href={"/dashboard"} className="flex items-center gap-2">
+            <ArrowLeft className="h-4 w-4" />
+            Back to Dashboard
+          </Link>
         </Button>
       </div>
       <div className="flex flex-wrap gap-2 text-xs">

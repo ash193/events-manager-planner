@@ -7,6 +7,16 @@ function isServerActionPost(request: NextRequest) {
 }
 
 export default async function proxy(request: NextRequest) {
+  const { pathname } = request.nextUrl;
+
+  if (pathname === "/") {
+    return NextResponse.next();
+  }
+
+  if (pathname === "/invite" || pathname.startsWith("/invite/")) {
+    return NextResponse.next();
+  }
+
   if (isServerActionPost(request)) {
     return NextResponse.next();
   }

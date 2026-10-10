@@ -55,16 +55,18 @@ export async function InviteRsvpContent({
               ? new Date(event.eventDate).toLocaleString()
               : "No date selected"}
             {event.location ? `-${event.location}` : ""}
-            {event.description ? (
-              <p className="text-sm text-[var(--muted-foreground)]">
-                {event.description}
-              </p>
-            ) : null}
           </p>
+          {event.description && (
+            <p className="text-sm text-[var(--muted-foreground)]">
+              {event.description}
+            </p>
+          )}
         </CardHeader>
         <CardContent>
-          {true ? (
-            <p>Thanks. Your RSVP has been recorded (or updated)</p>
+          {submitted ? (
+            <p className="mb-4 test-sm text-green-500">
+              Thanks. Your RSVP has been recorded (or updated)
+            </p>
           ) : null}
           <Form action={submitRsvpForToken}>
             <FormField>
@@ -72,7 +74,7 @@ export async function InviteRsvpContent({
               <Input id="name" name="name" required placeholder="Your name" />
             </FormField>
             <FormField>
-              <Label htmlFor="email">Name</Label>
+              <Label htmlFor="email">Email</Label>
               <Input
                 id="email"
                 name="email"
